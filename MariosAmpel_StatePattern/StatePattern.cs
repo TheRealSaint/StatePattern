@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace MariosAmpel_StatePattern
 {
@@ -15,7 +16,9 @@ namespace MariosAmpel_StatePattern
     //StateContext, die wichtigste Klasse
     public class StateContext
     {
-
+        public Color AmpelOben { get; set; }
+        public Color AmpelMitte{ get; set; }
+        public Color AmpelUnten { get; set; }
         public IState State { get; set; }
 
         //Methode zum Wechseln des Status
@@ -30,7 +33,6 @@ namespace MariosAmpel_StatePattern
     public interface IState
     {
         void Change(StateContext context);
-
     }
 
 
@@ -40,6 +42,9 @@ namespace MariosAmpel_StatePattern
         public void Change(StateContext objekt)
         {
             objekt.State = new RedAndAmber();
+            objekt.AmpelOben = Color.Red;
+            objekt.AmpelMitte = Color.Yellow;
+            objekt.AmpelUnten = Color.Black;
         }
     }
 
@@ -49,6 +54,9 @@ namespace MariosAmpel_StatePattern
         public void Change(StateContext objekt)
         {
             objekt.State = new Green();
+            objekt.AmpelOben = Color.Black;
+            objekt.AmpelMitte = Color.Black;
+            objekt.AmpelUnten = Color.LimeGreen;
         }
     }
 
@@ -58,6 +66,9 @@ namespace MariosAmpel_StatePattern
         public void Change(StateContext objekt)
         {
             objekt.State = new Red();
+            objekt.AmpelOben = Color.Red;
+            objekt.AmpelMitte = Color.Black;
+            objekt.AmpelUnten = Color.Black;
         }
     }
 
@@ -67,6 +78,9 @@ namespace MariosAmpel_StatePattern
         public void Change(StateContext objekt)
         {
             objekt.State = new Yellow();
+            objekt.AmpelOben = Color.Black;
+            objekt.AmpelMitte = Color.Yellow;
+            objekt.AmpelUnten = Color.Black;
         }
     }
 }

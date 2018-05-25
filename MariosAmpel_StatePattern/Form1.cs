@@ -21,15 +21,19 @@ namespace MariosAmpel_StatePattern
             MeineAmpel.State = new Red();
             MeineAmpel.Change();
             this.BackColor = Color.DodgerBlue;
-            panel_oben.BackColor = Color.Black;
-            panel_mitte.BackColor = Color.Black;
-            panel_unten.BackColor = Color.Black;
+            //panel_oben.BackColor = Color.Black;
+            //panel_mitte.BackColor = Color.Black;
+            //panel_unten.BackColor = Color.Black;
         }
 
         private void btn_state_change_Click(object sender, EventArgs e)
         {            
             MeineAmpel.Change();
-            Colorcheck();
+            //Colorcheck();
+            panel_oben.BackColor = MeineAmpel.AmpelOben;
+            panel_mitte.BackColor = MeineAmpel.AmpelMitte;
+            panel_unten.BackColor = MeineAmpel.AmpelUnten;
+
             Console.WriteLine(MeineAmpel.State);
             this.Refresh();
         }
